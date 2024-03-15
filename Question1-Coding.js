@@ -1,18 +1,3 @@
-function generateStudentMarkSheets(students, Details) {
-    const studentsMarkSheets = [];
-
-    students.forEach(student => {
-        const studentDetails = Details.find(detail => detail.Roll === student.Roll);
-        const marks = { ...student, ...studentDetails.subjects };
-        const totalMarks = Object.values(marks).reduce((total, mark) => total + mark, 0); // total act as accumulator and mark act as currentValue (current marks)
-        const status = totalMarks >= 200 ? "pass" : "fail";
-        studentsMarkSheets.push({ ...marks, total: totalMarks, status });
-    });
-
-    return studentsMarkSheets;
-}
-
-// Input data
 const students = [
     { name: "Dhishan Debnath", Roll: 1 },
     { name: "Animesh Gupta", Roll: 2 },
@@ -28,6 +13,21 @@ const Details = [
     { Roll: 2, subjects: { math: 55, english: 56, computer: 48, chemistry: 12 } }
 ];
 
-// Generate student mark sheets
+
+function generateStudentMarkSheets(students, Details) {
+    const studentsMarkSheets = [];
+
+    students.forEach(student => {
+        const studentDetails = Details.find(detail => detail.Roll === student.Roll);
+        const marks = { ...student, ...studentDetails.subjects };
+        const totalMarks = Object.values(marks).reduce((total, mark) => ((typeof mark) === "string")? total+0 :  Number(total + mark), 0); // total act as accumulator and mark act as currentValue (current marks)
+        const status = totalMarks >= 200 ? "pass" : "fail";
+        studentsMarkSheets.push({ ...marks, total: totalMarks, status });
+    });
+
+    return studentsMarkSheets;
+}
+
+
 const studentsMarkSheets = generateStudentMarkSheets(students, Details);
 console.log(studentsMarkSheets);
