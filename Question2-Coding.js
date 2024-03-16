@@ -1,5 +1,5 @@
-function findCaliforniaCafes(searchTerm) {
-    const cafes = [
+function findCaliforniaCafes(searchTerm) {                   // creating function called findCaliforniaCafes with parameter of searchTerm
+    const cafes = [                                        // Providing given cafes data like name and place_id
         { "name": "Ashley's Cafe", "place_id": "12hydbdf76sljfts87sbfis" },
         { "name": "Avenue Bakery Cafe", "place_id": "jahgde7wgdiau8ewsahgosd" },
         { "name": "Avenue Cafe", "place_id": "skjd86svvfdrsv55svbvf3f" },
@@ -9,7 +9,7 @@ function findCaliforniaCafes(searchTerm) {
         { "name": "Philz Coffee", "place_id": "urhw3837ehalod7w02b7835" }
     ];
 
-    const places = [
+    const places = [                                        // Providing given places details like id and address
         { "id": "12hydbdf76sljfts87sbfis", "street_no": "1B", "locality": "Macarthur Blvd", "postal_code": "20619", "lat": "38.1781 N", "long": "118.4171 W" },
         { "id": "jahgde7wgdiau8ewsahgosd", "street_no": "60H", "locality": "Solomos Island Road", "postal_code": "20688", "lat": "36.7783 N", "long": "119.4179 W" },
         { "id": "kjk234g4gcvfx8usg1l33pi", "street_no": "45250", "locality": "Worth Avenue, Unit A", "postal_code": "20619", "lat": "36.1152", "long": "117.521" },
@@ -40,6 +40,6 @@ function findCaliforniaCafes(searchTerm) {
     return results;
 }
 
-// Example usage:
+// Below printing Ouput of searchTerm as Avenue
 const results = findCaliforniaCafes('Avenue');
 console.log(results);
